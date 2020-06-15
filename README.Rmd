@@ -31,5 +31,5 @@ For the purposes of this project, the original processed data was further simpli
 * 'README.Rmd'
 * 'samsung_code_book.Rmd' : Guide to variables in dataset and transformations made to tidy data from original form
 * 'run_analysis.R' : Script to read in data from original format and combine and process to produce tidy dataset
-* 'samsung_galaxy_activity.csv' : Tidy dataset
+* 'samsung_galaxy_activity.txt' : Tidy dataset
 
