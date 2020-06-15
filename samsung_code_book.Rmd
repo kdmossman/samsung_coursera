@@ -1,0 +1,226 @@
+---
+title: "Code Book for Samsung Data"
+author: "Kaspar Mossman"
+date: "6/15/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Introduction
+	
+### Description of Dataset
+        This tidy dataset is derived from data stored at the UCI Irvine Machine Learning Repository.
+        Link: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+        The data at this site comprises the "Human Activity Recognition" database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone (Samsung Galaxy S II) with embedded inertial sensors.
+
+### Transformations
+        To tidy the dataset, six files were combined: three each from the "test" and "train" folders within the UCI HAR Dataset.
+        In each of "test" and "train" there are three files, as well as an "Inertial Signals" raw data folder not used in this analysis.
+        The actual numerical data is in X_test.txt and X_train.txt.
+        The numerical codes for the subjects generating the data are in subject_test.txt and subject_train.txt.
+        The activity codes (Walking, Laying, etc.) are in y_test.txt and y_train.txt.
+        The "dplyr" package was used to manipulate and simplify the data.
+        First, for each of test and train datasets, the subject and activity columns were bound to the sensor data.
+        Then the test and train dataset rows were bound together in one large dataset.
+        Then, for each signal, only the mean and standard deviation were selected. All other data was discarded.
+        The activities were given the descriptive names originally assigned by the scientists in the file activity_labels.txt.
+        Then, the data was grouped primarily by activity, and secondarily by experimental subject, and the mean of each variable calculated for those groups.
+        These calculated means were stored in a new tidy dataset, samsung_galaxy_activity.csv. Information about the variables follows.
+
+## Variables: Identifying Labels
+
+### Activity
+        Self-explanatory description of subject's activity during data-gathering, as observed in video records.
+                Laying
+                Sitting
+                Standing
+                Walking
+                Walking Downstairs
+                Walking Upstairs
+### Subject
+        There were 30 experimental subjects who took part. They were anonymized by number and randomly assigned to the training (21-subject) and test (9-subject) groups.
+                1
+                2
+                3
+                4
+                5
+                6
+                7
+                8
+                9
+                10
+                11
+                12
+                13
+                14
+                15
+                16
+                17
+                18
+                19
+                20
+                21
+                22
+                23
+                24
+                25
+                26
+                27
+                28
+                29
+                30
+                
+## Variables: Quantitative Data
+        Measured by sensors in Samsung Galaxy smartphone.
+
+### time_body_accel_mean_x
+        Mean of body acceleration in x-direction, time domain, units 'g'
+### time_body_accel_mean_y
+        Mean of body acceleration in y-direction, time domain, units 'g'
+### time_body_accel_mean_z
+        Mean of body acceleration in z-direction, time domain, units 'g'
+### time_body_accel_stdev_x
+        Standard deviation of body acceleration in x-direction, time domain, units 'g'
+### time_body_accel_stdev_y
+        Standard deviation of body acceleration in y-direction, time domain, units 'g'
+### time_body_accel_stdev_z
+        Standard deviation of body acceleration in z-direction, time domain, units 'g'
+        
+### time_gravity_accel_mean_x
+        Mean of gravity acceleration in x-direction, time domain, units 'g'
+### time_gravity_accel_mean_y
+        Mean of gravity acceleration in y-direction, time domain, units 'g'
+### time_gravity_accel_mean_z
+        Mean of gravity acceleration in z-direction, time domain, units 'g'
+### time_gravity_accel_stdev_x
+        Standard deviation of gravity acceleration in x-direction, time domain, units 'g'
+### time_gravity_accel_stdev_y
+        Standard deviation of gravity acceleration in y-direction, time domain, units 'g'
+### time_gravity_accel_stdev_z
+        Standard deviation of gravity acceleration in z-direction, time domain, units 'g'
+        
+### time_body_jerk_mean_x
+        Mean of body jerk in x-direction, time domain, units 'g'/s
+### time_body_jerk_mean_y
+        Mean of body jerk in y-direction, time domain, units 'g'/s
+### time_body_jerk_mean_z
+        Mean of body jerk in z-direction, time domain, units 'g'/s
+### time_body_jerk_stdev_x
+        Standard deviation of body jerk in x-direction, time domain, units 'g'/s
+### time_body_jerk_stdev_y
+        Standard deviation of body jerk in y-direction, time domain, units 'g'/s
+### time_body_jerk_stdev_z
+        Standard deviation of body jerk in z-direction, time domain, units 'g'/s
+        
+### time_body_ang_vel_mean_x
+        Mean of angular velocity vector in x-direction, time domain, units rad/s
+### time_body_ang_vel_mean_y
+        Mean of angular velocity vector in y-direction, time domain, units rad/s
+### time_body_ang_vel_mean_z
+        Mean of angular velocity vector in z-direction, time domain, units rad/s
+### time_body_ang_vel_stdev_x
+        Standard deviation of angular velocity vector in x-direction, time domain, units rad/s
+### time_body_ang_vel_stdev_y
+        Standard deviation of angular velocity vector in y-direction, time domain, units rad/s
+### time_body_ang_vel_stdev_z
+        Standard deviation of angular velocity vector in z-direction, time domain, units rad/s
+        
+### time_body_ang_jerk_mean_x
+        Mean of derivative of angular velocity vector in x-direction, time domain, units rad/s^2
+### time_body_ang_jerk_mean_y
+        Mean of derivative of angular velocity vector in y-direction, time domain, units rad/s^2
+### time_body_ang_jerk_mean_z
+        Mean of derivative of angular velocity vector in z-direction, time domain, units rad/s^2
+### time_body_ang_jerk_stdev_x
+        Standard deviation of derivative of angular velocity vector in x-direction, time domain, units rad/s^2
+### time_body_ang_jerk_stdev_y
+        Standard deviation of derivative of angular velocity vector in y-direction, time domain, units rad/s^2
+### time_body_ang_jerk_stdev_z
+        Standard deviation of derivative of angular velocity vector in z-direction, time domain, units rad/s^2
+        
+### time_body_accel_mag_mean
+        Mean of magnitude of body acceleration, time domain, units 'g'
+### time_body_accel_mag_stdev
+        Standard deviation of magnitude of body acceleration, time domain, units 'g'
+        
+### time_gravity_accel_mag_mean
+        Mean of magnitude of gravity acceleration, time domain, units 'g'
+### time_gravity_accel_mag_stdev
+        Standard deviation of magnitude of gravity acceleration, time domain, units 'g'
+        
+### time_body_jerk_mag_mean
+        Mean of magnitude of body jerk, time domain, units 'g'/s
+### time_body_jerk_mag_stdev
+        Standard deviation of magnitude of body jerk, time domain, units 'g'/s
+        
+### time_body_ang_vel_mag_mean
+        Mean of angular velocity vector magnitude, time domain, units rad/s
+### time_body_ang_vel_mag_stdev
+        Standard deviation of angular velocity vector magnitude, time domain, units rad/s
+        
+### time_body_ang_jerk_mag_mean
+        Mean of magnitude of time derivative of angular velocity, time domain, units rad/s^2
+### time_body_ang_jerk_mag_stdev
+        Standard deviation of magnitude of time derivative of angular velocity, time domain, units rad/s^2
+        
+### freq_body_accel_mean_x
+        Mean body acceleration in x-direction, frequency domain, units 'g'/Hz
+### freq_body_accel_mean_y
+        Mean body acceleration in y-direction, frequency domain, units 'g'/Hz
+### freq_body_accel_mean_z
+        Mean body acceleration in z-direction, frequency domain, units 'g'/Hz
+### freq_body_accel_stdev_x
+        Standard deviation of body acceleration in x-direction, frequency domain, units 'g'/Hz
+### freq_body_accel_stdev_y
+        Standard deviation of body acceleration in y-direction, frequency domain, units 'g'/Hz
+### freq_body_accel_stdev_z
+        Standard deviation of body acceleration in z-direction, frequency domain, units 'g'/Hz
+        
+### freq_body_jerk_mean_x
+        Mean body jerk in x-direction, frequency domain, units 'g's/Hz (effectively, 'g')
+### freq_body_jerk_mean_y
+        Mean body jerk in y-direction, frequency domain, units 'g's/Hz (effectively, 'g')
+### freq_body_jerk_mean_z
+        Mean body jerk in z-direction, frequency domain, units 'g's/Hz (effectively, 'g')
+### freq_body_jerk_stdev_x
+        Standard deviation of body jerk in x-direction, frequency domain, units 'g's/Hz (effectively, 'g')
+### freq_body_jerk_stdev_y
+        Standard deviation of body jerk in y-direction, frequency domain, units 'g's/Hz (effectively, 'g')
+### freq_body_jerk_stdev_z
+        Standard deviation of body jerk in z-direction, frequency domain, units 'g's/Hz (effectively, 'g')
+        
+### freq_body_ang_vel_mean_x
+        Mean of body angular velocity vector, x-direction, frequency domain, units rad/s/Hz (effectively, rad)
+### freq_body_ang_vel_mean_y
+        Mean of body angular velocity vector, y-direction, frequency domain, units rad/s/Hz (effectively, rad)
+### freq_body_ang_vel_mean_z
+        Mean of body angular velocity vector, z-direction, frequency domain, units rad/s/Hz (effectively, rad)
+### freq_body_ang_vel_stdev_x
+        Standard deviation of body angular velocity vector, x-direction, frequency domain, units rad/s/Hz (effectively, rad)
+### freq_body_ang_vel_stdev_y
+        Standard deviation of body angular velocity vector, y-direction, frequency domain, units rad/s/Hz (effectively, rad)
+### freq_body_ang_vel_stdev_z
+        Standard deviation of body angular velocity vector, z-direction, frequency domain, units rad/s/Hz (effectively, rad)
+        
+### freq_body_accel_mag_mean
+        Mean of body acceleration magnitude, frequency domain, units 'g'/s/Hz (effectively, 'g')
+### freq_body_accel_mag_stdev
+        Standard deviation of body acceleration magnitude, frequency domain, units 'g'/s/Hz (effectively, 'g')
+        
+### freq_body_jerk_mag_mean
+        Mean of body jerk magnitude, frequency domain, units 'g'/s^2/Hz (effectively, 'g'/s)
+### freq_body_jerk_mag_stdev
+        Standard deviation of body jerk magnitude, frequency domain, units 'g'/s^2/Hz (effectively, 'g'/s)
+        
+### freq_body_ang_vel_mag_mean
+        Mean of body angular velocity vector magnitude, frequency domain, units rad/s/Hz (effectively, rad)
+### freq_body_ang_vel_mag_stdev
+        Standard deviation of body angular velocity vector magnitude, frequency domain, units rad/s/Hz (effectively, rad)
+### freq_body_ang_jerk_mag_mean
+        Mean of body angular "jerk" vector magnitude, frequency domain, units rad/s^2/Hz (effectively, rad/s)
+### freq_body_ang_jerk_mag_stdev
+        Standard deviation of body angular "jerk" vector magnitude, frequency domain, units rad/s^2/Hz (effectively, rad/s)
+        
+        

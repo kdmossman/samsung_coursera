@@ -1,0 +1,35 @@
+---
+title: "README"
+author: "Kaspar Mossman"
+date: "6/15/2020"
+output: html_document
+---
+
+## Human Activity Recognition Based on Smartphone Sensor Data
+
+***
+Based on the original dataset by:
+Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Universita degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+activityrecognition@smartlab.ws
+www.smartlab.ws
+
+Data stored at http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+***
+
+This submitted in fulfillment of Course Project Requirements for Week 4 of Coursera's "Getting and Cleaning Data."
+
+### Description of data project
+The goal of collecting the data appears to be ultimately to teach smartphones to determine what activity a human is doing at any given moment. The original data was collected from 30 human volunteers each wearing a Samsung Galaxy smartphone. Sensor inertial data was processed (as the original authors describe in their README) to generate, for each subject and multiple activity intervals, a 561-entry vector of values describing the linear and angular acceleration in time and frequency domain.
+
+For the purposes of this project, the original processed data was further simplified and tidied to provide a single file containing mean and standard deviation of the variables, grouped primarily by activity and secondarily by subject. This tidied data is stored in the file 'samsung_galaxy_activity.csv'.
+
+### Files included
+* 'README.Rmd'
+* 'samsung_code_book.Rmd' : Guide to variables in dataset and transformations made to tidy data from original form
+* 'run_analysis.R' : Script to read in data from original format and combine and process to produce tidy dataset
+* 'samsung_galaxy_activity.csv' : Tidy dataset
+
