@@ -18,7 +18,7 @@ test.subj.tbl <- rename(test.subj.tbl, Subject = V1)
 test.activ.id <- read.table("./UCI HAR Dataset/test/y_test.txt")
 test.activ.tbl <- tibble(test.activ.id)
 ## Rename column
-test.activ.tbl <- rename(test.activ.tbl, Activity = V1)
+test.activ.tbl <- rename(test.activ.tbl, Activity_Num = V1)
 
 ## Bind all test columns: data + subject & activity identifiers
 test.all.tbl <- bind_cols(test.subj.tbl, test.activ.tbl, test.tbl)
@@ -222,4 +222,5 @@ data.id.sel.act <- rename(data.id.sel.act,
 ## WITH THE AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT.
 data.grouped <- group_by(data.id.sel.act, Activity, Subject)
 data.group.summ <- summarize_all(data.grouped, mean)
-write.csv(data.group.summ, file = "samsung_galaxy_activity.csv")
+## write.csv(data.group.summ, file = "samsung_galaxy_activity.csv")
+write.table(data.group.summ, file = "samsung_galaxy_activity.txt", row.names = FALSE)
